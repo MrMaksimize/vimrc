@@ -29,3 +29,8 @@ augroup textobj_sentence
   autocmd!
   autocmd FileType markdown,mkd,md call textobj#sentence#init()
 augroup END
+
+augroup vim_voom
+  autocmd!
+  autocmd FileType taskpaper :Voom taskpaper
+augroup END
