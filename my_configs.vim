@@ -18,16 +18,17 @@ endif
 "let g:pencil#wrapModeDefault = 'soft'   " or 'soft'
 let g:pencil#textwidth = 80
 let g:airline_section_x = '%{PencilMode()}'
+"set nocompatible
+"filetype plugin indent on
 "let g:pencil#autoformat = 1
 augroup pencil
   autocmd!
   autocmd FileType markdown,mkd,md call pencil#init()
-"  autocmd FileType text         call pencil#init({'wrap': 'hard'})
 augroup END
 
 augroup textobj_sentence
   autocmd!
-  autocmd FileType markdown,mkd,md call textobj#sentence#init()
+  autocmd FileType markdown call textobj#sentence#init()
 augroup END
 
 augroup vim_voom
