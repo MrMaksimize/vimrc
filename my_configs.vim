@@ -15,13 +15,13 @@ else
 endif
 
 "PENCIL stuff
-let g:pencil#wrapModeDefault = 'soft'   " or 'soft'
-let g:pencil#textwidth = 74
+"let g:pencil#wrapModeDefault = 'soft'   " or 'soft'
+let g:pencil#textwidth = 80
 let g:airline_section_x = '%{PencilMode()}'
 "let g:pencil#autoformat = 1
 augroup pencil
   autocmd!
-"  autocmd FileType markdown,mkd,md call pencil#init()
+  autocmd FileType markdown,mkd,md call pencil#init()
 "  autocmd FileType text         call pencil#init({'wrap': 'hard'})
 augroup END
 
