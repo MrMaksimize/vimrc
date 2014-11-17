@@ -14,6 +14,9 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
+let g:GeeknoteExplorerWidth=35
+"autocmd FileType geeknote setlocal nonumber
+
 "PENCIL stuff
 "let g:pencil#wrapModeDefault = 'soft'   " or 'soft'
 let g:pencil#textwidth = 80
@@ -23,12 +26,12 @@ let g:airline_section_x = '%{PencilMode()}'
 "let g:pencil#autoformat = 1
 augroup pencil
   autocmd!
-  autocmd FileType markdown,mkd,md call pencil#init()
+  autocmd FileType markdown,mkd,md,geeknote call pencil#init()
 augroup END
 
 augroup textobj_sentence
   autocmd!
-  autocmd FileType markdown call textobj#sentence#init()
+  autocmd FileType markdown,geeknote call textobj#sentence#init()
 augroup END
 
 augroup vim_voom
