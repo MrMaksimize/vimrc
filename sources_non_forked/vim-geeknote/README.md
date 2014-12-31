@@ -15,7 +15,7 @@ Integrates Geeknote/Evernote into Vim.
 ## Dependencies/Requirements
 
 - Vim 7.4.364 or newer (issues observed with earlier versions)
-- Linux (not tested on operating systems)
+- Linux or OSX (not tested on Windows)
 
 ## Installation
 
@@ -27,9 +27,11 @@ Integrates Geeknote/Evernote into Vim.
 
 * [Vundle](https://github.com/gmarik/vundle)
    * Add `Bundle 'https://github.com/neilagabriel/vim-geeknote'` to .vimrc
-   * Run `:BundeInstall`
+   * Run `:BundleInstall`
 * [Pathogen](https://github.com/tpope/vim-pathogen)
    * `git clone https://github.com/neilagabriel/vim-geeknote ~/.vim/bundle/vim-geeknote`
+
+3. If using macvim refer to [README_mac.md](README_mac.md) for additional instructions.
 
 ## Optional Setup and Configuration
 
@@ -63,12 +65,14 @@ your notes.
 #### Limit Width
 
 By default, vim-geeknote will attempt to resize the navigation window based on
-its current content. If you have notebooks or notes with very long names you
-may want to use the following option to cap the size of the window:
+its current content, up to 40 columns. If you have notebooks or notes with very
+long names you may want to use the following option:
 
     let g:GeeknoteMaxExplorerWidth=<value>
 
-Where `<value>` is replaced with the max width of the window.
+Where `<value>` is replaced with the max width of the window. Depending on the
+value you specify, this could be used to increase the cap in order to view
+longer names or decrease it to keep the navigation window even smaller.
 
 #### Fix Width
 
@@ -109,12 +113,32 @@ degrade it depending on the number of expressions you specify.
     \        '^Status - WW(\d+)$',
     \    ]
 
+### Explorer Special Characters
+
+The following options may be used to customize the characters used to denote
+opened/closed notebooks and tags:
+
+    let g:GeeknoteExplorerNodeClosed = '+'
+    let g:GeeknoteExplorerNodeOpened = '-'
+
+Both unicode and ascii characters are supported.
+
 ### Launching
 
 It may sometimes be convenient to launch geeknote in a new instance of Vim. An
 alias can be helpful for this. Here an example for `bash`:
 
     alias vim-geeknote='vi -c Geeknote'
+
+### Powerline
+
+Powerline may be used to improve the look of the navigation window as well as
+any notes that you open. At this time however, if you'd like this support,
+you'll need to use my personal powerline fork locate here:
+
+    https://github.com/neilagabriel/powerline.git
+
+Just install it in the normal fashion and everything should just work.
 
 ### Geeknote Autocommands
 
@@ -192,7 +216,6 @@ titles' and/or content. All results will be added to the nagivation window.
 - Refresh open notes upon `:GeeknoteSync`
 - Complete tag support (adding tags, applying/removing to/from notes)
 - Customizable note display
-- Prettier navigation window
 - Improved notebook creation process
 
 ## License
