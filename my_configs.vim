@@ -38,3 +38,6 @@ augroup vim_voom
   autocmd!
   autocmd FileType taskpaper :Voom taskpaper
 augroup END
+
+
+let g:NERDTreeWinPos = "left"
