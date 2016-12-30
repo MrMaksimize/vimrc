@@ -307,7 +307,7 @@ endif
 "endfunc
 "autocmd BufWrite *.py :call DeleteTrailingWS()
 "autocmd BufWrite *.coffee :call DeleteTrailingWS()
-autocmd BufWritePre * :FixWhitespace
+"autocmd BufWritePre * :FixWhitespace
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

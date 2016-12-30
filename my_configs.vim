@@ -2,9 +2,11 @@ set timeoutlen=2000
 set pastetoggle=<F6>
 set scrolloff=3
 set clipboard=unnamed
-" md is markdown
+" md is markdown, on file read
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md set spell
+
+
 " Fix Cursor in TMUX
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -16,3 +18,36 @@ endif
 
 
 let g:NERDTreeWinPos = "left"
+
+" Map control p
+let g:ctrlp_map = '<c-p>'
+
+" Line Numbers
+set nu
+
+" python
+let python_highlight_all=1
+syntax on
+
+" On Save, call Flake8
+"autocmd BufWritePost *.py call Flake8()
+
+" On save, trim whitespace
+autocmd BufWritePre * StripWhitespace
+
+" On Save, call yapf
+autocmd BufWritePre *.py call yapf#YAPF()
+
+set textwidth=79  " lines longer than 79 columns will be broken
+set shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
+set tabstop=4     " a hard TAB displays as 4 columns
+set expandtab     " insert spaces when hitting TABs
+set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
+set shiftround    " round indent to multiple of 'shiftwidth'
+set autoindent    " align the new line indent with the previous line
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=5
