@@ -29,6 +29,19 @@ set nu
 let python_highlight_all=1
 syntax on
 
+"let g:neoformat_html_autohtml = {
+"        \ 'exe': 'prettydiff',
+"        \ 'args': ['mode:"beautify"',
+"                \  'lang:"html"'
+"                \  'readmethod:"filescreen"'
+"                \  'endquietly:"quiet"'
+"                \  'source:"%:p"'],
+"        \ 'no_append': 1
+"        \ }
+
+
+"let g:neoformat_enabled_html = ['autohtml']
+
 " On Save, call Flake8
 "autocmd BufWritePost *.py call Flake8()
 
@@ -37,6 +50,10 @@ autocmd BufWritePre * StripWhitespace
 
 " On Save, call yapf
 autocmd BufWritePre *.py call yapf#YAPF()
+" On save JS, call neoformat
+autocmd BufWritePre *.js Neoformat
+" On Save HTML run html-beautify that comes with js-beautify
+"autocmd BufWritePre *.html Neoformat
 
 set textwidth=120  " lines longer than 79 columns will be broken
 set shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
